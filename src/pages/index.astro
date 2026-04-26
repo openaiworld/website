@@ -15,6 +15,7 @@ import newsData from '../data/news.json';
 				<a href="/" class="text-white">Overview</a>
 				<a href="#skills" class="hover:text-white transition-colors">Skills</a>
 				<a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
+				<a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
 			</nav>
 		</div>
 	</header>
@@ -236,6 +237,80 @@ import newsData from '../data/news.json';
 					<div class="w-12 h-12 rounded-full bg-black border border-amber-500/50 flex items-center justify-center mb-6 text-amber-400 font-mono text-sm group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.2)]">4</div>
 					<h4 class="font-semibold text-white mb-2 tracking-wide">Stop</h4>
 					<p class="text-sm text-gray-500">记录 Log 并自动 Git 固化</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing & Contact -->
+		<section id="pricing" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/5">
+			<div class="mb-20 text-center">
+				<h2 class="text-3xl font-bold tracking-tight mb-4">为什么选择我们？</h2>
+				<p class="text-gray-400 max-w-2xl mx-auto text-lg font-light">提供专业的培训与完整的研发链路，帮助您大幅降低研发费用。</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-12 items-start">
+				<!-- Why Us -->
+				<div class="space-y-6">
+					<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all">
+						<div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6">
+							<span class="text-xl font-bold">1</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-2">第一，培训。</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">提供专业的指导和系统化培训，快速提升团队核心竞争力。</p>
+					</div>
+					<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all">
+						<div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-6">
+							<span class="text-xl font-bold">2</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-2">第二，我们有一套完整的研发链路。</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">覆盖从设计、开发到部署的全生命周期，提供标准化、高效的工具链支持。</p>
+					</div>
+					<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all">
+						<div class="w-12 h-12 rounded-2xl bg-pink-500/20 text-pink-400 flex items-center justify-center mb-6">
+							<span class="text-xl font-bold">3</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-2">第三，降低它的研发费用。</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">通过高效的工具和成熟的方法论，大幅度降低您的研发成本和试错费用。</p>
+					</div>
+				</div>
+
+				<!-- Pricing Panel -->
+				<div class="sticky top-24 p-8 rounded-3xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 backdrop-blur-md">
+					<h3 class="text-2xl font-bold text-white mb-6">专属培训计划</h3>
+					
+					<div class="mb-8 pb-8 border-b border-white/10">
+						<div class="flex items-baseline gap-2 mb-2">
+							<span class="text-4xl font-bold text-white">¥500</span>
+							<span class="text-gray-400">/ 导师每小时</span>
+						</div>
+					</div>
+					
+					<ul class="space-y-4 mb-8">
+						<li class="flex items-start gap-3 text-gray-300">
+							<svg class="w-6 h-6 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+							<span>深度系统化实战培训</span>
+						</li>
+						<li class="flex items-start gap-3 text-gray-300">
+							<svg class="w-6 h-6 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+							<span><strong>免费一周的微信群，及时答疑</strong></span>
+						</li>
+						<li class="flex items-start gap-3 text-gray-300">
+							<svg class="w-6 h-6 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+							<span>全链路研发体系接入</span>
+						</li>
+					</ul>
+
+					<div class="bg-black/40 rounded-2xl p-6 border border-white/5 flex items-center justify-between">
+						<div>
+							<div class="text-sm text-gray-400 mb-2">联系我</div>
+							<div class="font-medium text-white flex items-center gap-2 text-lg">
+								微信扫码添加
+							</div>
+						</div>
+						<div class="w-32 h-32 rounded-xl overflow-hidden bg-white/10 p-1.5 border border-white/10 shrink-0 shadow-lg">
+							<img src="/contact.png" alt="微信联系方式" class="w-full h-full object-cover rounded-lg" />
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
