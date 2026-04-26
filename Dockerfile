@@ -1,9 +1,21 @@
 # Build
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 
+# 设置工作目录
 WORKDIR /app
+
+# [重要] 替换 Alpine 官方源为阿里云镜像源，加速 apk 包下载
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
+# [重要] 替换 npm 源为阿里云镜像源，加速 npm install
+RUN npm config set registry https://registry.npmmirror.com/ && \
+    npm install -g pnpm
+
 COPY package.json pnpm-lock.yaml* ./
-RUN corepack enable pnpm && pnpm install --frozen-lockfile
+
+# 3. 让 pnpm 也使用国内源，并开始安装依赖
+RUN pnpm config set registry https://registry.npmmirror.com/ && \
+    pnpm install --frozen-lockfile
 
 COPY . .
 
