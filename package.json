@@ -1,0 +1,23 @@
+{
+  "name": "openworld-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fetch": "node scripts/fetch-trending.mjs",
+    "fetch:build": "node scripts/fetch-trending.mjs && astro build"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^6.1.9",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.8",
+    "typescript": "^5.3.3"
+  }
+}

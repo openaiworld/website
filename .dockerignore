@@ -1,0 +1,8 @@
+node_modules
+.astro
+dist
+.git
+*.tmp
+*.bak
+.DS_Store
+.env

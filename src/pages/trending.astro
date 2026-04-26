@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 读取采集的数据（构建时静态加载）
+let trending = { items: [], updated: '', count: 0 };
+let news = { items: [], updated: '', count: 0 };
+
+try {
+  trending = await import('../data/trending.json');
+} catch {}
+
+try {
+  news = await import('../data/news.json');
+} catch {}
+
+function formatStars(n: number) {
+  return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+}
+---
+
+<Layout title="AI Trending — OpenWorld">
+	<main class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-950">
+		<!-- Header -->
+		<header class="border-b border-white/10 backdrop-blur-md sticky top-0 z-50 bg-gray-900/80">
+			<div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+				<a href="/" class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+					🌐 OpenWorld
+				</a>
+				<nav class="flex gap-6 text-sm text-gray-400">
+					<a href="/" class="hover:text-white transition">首页</a>
+					<a href="/trending" class="text-white">AI Trending</a>
+				</nav>
+			</div>
+		</header>
+
+		<div class="max-w-6xl mx-auto px-6 py-16">
+			<!-- Title -->
+			<div class="text-center mb-16">
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+					🔥 AI Trending
+				</h1>
+				<p class="text-gray-400 text-lg">
+					每周自动更新的 AI 热门项目与前沿资讯
+				</p>
+				{trending.updated && (
+					<p class="text-gray-500 text-sm mt-2">
+						最后更新: {new Date(trending.updated).toLocaleString('zh-CN')}
+					</p>
+				)}
+			</div>
+
+			<!-- GitHub Trending -->
+			<section class="mb-20">
+				<div class="flex items-center gap-3 mb-8">
+					<span class="text-2xl">⭐</span>
+					<h2 class="text-2xl font-bold text-white">GitHub 热门 AI 项目</h2>
+					<span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm border border-indigo-500/30">
+						{trending.count} 项目
+					</span>
+				</div>
+
+				{trending.items.length > 0 ? (
+					<div class="grid gap-4">
+						{trending.items.map((repo: any, i: number) => (
+							<a href={repo.url} target="_blank" rel="noopener"
+								class="group block bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-indigo-500/30 transition-all">
+								<div class="flex items-start justify-between gap-4">
+									<div class="flex-1 min-w-0">
+										<div class="flex items-center gap-3 mb-2">
+											<span class="text-gray-500 text-sm font-mono w-6">#{i + 1}</span>
+											<h3 class="text-white font-semibold group-hover:text-indigo-300 transition truncate">
+												{repo.name}
+											</h3>
+											<span class="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs shrink-0">
+												{repo.language}
+											</span>
+										</div>
+										<p class="text-gray-400 text-sm ml-9 line-clamp-2">{repo.description}</p>
+									</div>
+									<div class="flex items-center gap-1 text-yellow-400 text-sm font-semibold shrink-0">
+										<span>⭐</span>
+										<span>{formatStars(repo.stars)}</span>
+									</div>
+								</div>
+							</a>
+						))}
+					</div>
+				) : (
+					<div class="text-center py-16 text-gray-500">
+						<p>暂无数据。运行 <code class="bg-gray-800 px-2 py-1 rounded">npm run fetch</code> 采集最新数据。</p>
+					</div>
+				)}
+			</section>
+
+			<!-- AI News -->
+			<section>
+				<div class="flex items-center gap-3 mb-8">
+					<span class="text-2xl">📰</span>
+					<h2 class="text-2xl font-bold text-white">AI 前沿资讯</h2>
+					<span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30">
+						{news.count} 篇
+					</span>
+				</div>
+
+				{news.items.length > 0 ? (
+					<div class="grid gap-3">
+						{news.items.map((item: any) => (
+							<a href={item.url} target="_blank" rel="noopener"
+								class="group flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-purple-500/30 transition-all">
+								<div class="flex-1 min-w-0">
+									<h3 class="text-white text-sm font-medium group-hover:text-purple-300 transition truncate">
+										{item.title}
+									</h3>
+								</div>
+								<div class="flex items-center gap-3 text-xs text-gray-500 shrink-0">
+									<span>{item.source}</span>
+									{item.date && <span>{item.date}</span>}
+								</div>
+							</a>
+						))}
+					</div>
+				) : (
+					<div class="text-center py-16 text-gray-500">
+						<p>暂无资讯。运行 <code class="bg-gray-800 px-2 py-1 rounded">npm run fetch</code> 采集最新数据。</p>
+					</div>
+				)}
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
+			<p>Powered by <a href="/" class="text-indigo-400 hover:underline">OpenWorld Wiki Plugin</a></p>
+		</footer>
+	</main>
+</Layout>

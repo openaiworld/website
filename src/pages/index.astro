@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import newsData from '../data/news.json';
+---
+
+<Layout title="OpenWorld Wiki Plugin">
+	<!-- 导航栏 -->
+	<header class="fixed top-0 w-full border-b border-white/5 backdrop-blur-xl z-50 bg-black/40">
+		<div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+			<a href="/" class="text-xl font-medium tracking-tight text-white flex items-center gap-2">
+				<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-xs">W</div>
+				OpenWorld
+			</a>
+			<nav class="flex gap-8 text-sm font-medium text-gray-400">
+				<a href="/" class="text-white">Overview</a>
+				<a href="#skills" class="hover:text-white transition-colors">Skills</a>
+				<a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="min-h-screen bg-black text-white selection:bg-indigo-500/30">
+		<!-- Hero Section -->
+		<section class="relative pt-40 pb-20 px-6 flex flex-col items-center text-center overflow-hidden">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+			
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-300 mb-8 backdrop-blur-md">
+				<span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+				Claude Code Plugin Ready
+			</div>
+			
+			<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-4xl leading-tight">
+				自进化知识库，<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">为 AI 赋能项目记忆。</span>
+			</h1>
+			
+			<p class="text-lg md:text-xl text-gray-400 max-w-2xl font-light mb-10 leading-relaxed">
+				基于 Karpathy 编译式理念。通过强制执行的 Hook 生命周期，让 AI 在每次操作中自动积累、检索和提炼知识。
+			</p>
+			
+			<div class="flex flex-col sm:flex-row items-center gap-4 relative z-10">
+				<div class="flex items-center bg-white/5 border border-white/10 rounded-xl pl-4 pr-1 py-1 backdrop-blur-md">
+					<code class="text-sm font-mono text-gray-300 mr-4">git clone ... ~/.claude/plugins/openworld</code>
+					<button class="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-lg text-gray-300" title="Copy code">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+					</button>
+				</div>
+				<a href="#skills" class="px-6 py-3 rounded-xl bg-white text-black font-medium hover:bg-gray-200 transition-colors">
+					了解核心技能
+				</a>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="skills" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/5">
+			<div class="mb-16">
+				<h2 class="text-3xl font-bold tracking-tight mb-4">核心 Skills</h2>
+				<p class="text-gray-400 max-w-2xl text-lg font-light">OpenWorld 内置了强大的专属技能。作为大模型的自然延伸，你可以在交互中直接调用这些 Skills。</p>
+			</div>
+			
+			<div class="grid md:grid-cols-2 gap-6">
+				<!-- Skill 1: wiki-add -->
+				<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6">
+						<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 flex items-center gap-3">
+						wiki-add
+						<span class="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">/add</span>
+					</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">
+						将项目源文件自动分析并吸收至 <code>raw/</code> 目录。提取概念、实体和架构信息，将其转化为结构化知识页面，并自动生成归档 Commit。
+					</p>
+				</div>
+				
+				<!-- Skill 2: wiki-work -->
+				<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-6">
+						<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 flex items-center gap-3">
+						wiki-work
+						<span class="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">/search</span>
+					</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">
+						通过 <code>index.md</code> 快速检索项目全貌。在回答复杂问题或进行代码重构时，主动调取该 Skill 获得充沛的上下文，避免凭空推导。
+					</p>
+				</div>
+
+				<!-- Skill 3: wiki-lint -->
+				<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 rounded-2xl bg-pink-500/20 text-pink-400 flex items-center justify-center mb-6">
+						<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 flex items-center gap-3">
+						wiki-lint
+						<span class="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">/lint</span>
+					</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">
+						维护知识库的健康度。自动扫描并发现孤儿页面、断开的死链以及可能过时的内容，确保 AI 读取的知识永远准确有效。
+					</p>
+				</div>
+
+				<!-- Skill 4: wiki-skill-gen -->
+				<div class="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-6">
+						<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 flex items-center gap-3">
+						wiki-skill-gen
+						<span class="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-gray-300">/evolve</span>
+					</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">
+						项目的自进化引擎。根据当前的知识覆盖率和代码演进，自动评估知识差距，并智能生成新的项目专属 Skill 提案。
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Data Insight Section -->
+		<section id="trending" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/5">
+			<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div>
+					<h2 class="text-3xl font-bold tracking-tight mb-4 flex items-center gap-3">
+						全网数据脉搏
+						<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
+							<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+							Live
+						</span>
+					</h2>
+					<p class="text-gray-400 max-w-2xl text-lg font-light">
+						展示 AI 自动采集的前沿动态与统计数据。未来将在这里实时追踪并反哺项目知识库。
+					</p>
+				</div>
+				<div class="text-sm font-mono text-gray-500 bg-white/[0.02] border border-white/5 px-4 py-2 rounded-lg">
+					Last synced: {newsData.updated ? new Date(newsData.updated).toLocaleDateString() : 'Waiting for data...'}
+				</div>
+			</div>
+
+			<!-- Dashboard Container -->
+			<div class="grid md:grid-cols-3 gap-6">
+				<!-- Chart Area -->
+				<div class="md:col-span-2 relative overflow-hidden rounded-3xl bg-white/[0.02] border border-white/5 p-8 flex flex-col justify-center items-center min-h-[300px] group">
+					<div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+					
+					{newsData.count > 0 ? (
+						<div class="w-full h-full flex flex-col items-start justify-start relative z-10">
+							<h3 class="text-xl font-medium text-emerald-400 mb-6">最新采集动态</h3>
+							<div class="w-full space-y-4">
+								{newsData.items.slice(0, 3).map((item: any) => (
+									<div class="bg-black/40 border border-white/5 p-4 rounded-xl backdrop-blur-sm flex justify-between items-center transition hover:bg-white/5">
+										<span class="text-gray-300 truncate pr-4">{item.title || 'Untitled Data Point'}</span>
+										<span class="text-xs text-gray-500 font-mono shrink-0">{item.date || ''}</span>
+									</div>
+								))}
+							</div>
+						</div>
+					) : (
+						<>
+							<div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 text-gray-500 border border-white/5 relative z-10">
+								<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+							</div>
+							<h3 class="text-xl font-medium text-gray-300 mb-2 relative z-10">趋势分析视图</h3>
+							<p class="text-gray-500 text-sm max-w-sm text-center relative z-10">采集模块尚未挂载数据。未来这里将展示基于 news.json 的词频统计和技术演进曲线。</p>
+							
+							<!-- Decorative Mock Lines -->
+							<div class="absolute bottom-0 left-0 right-0 h-32 opacity-20 pointer-events-none flex items-end justify-between px-8 pb-4">
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-12"></div>
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-24"></div>
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-16"></div>
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-32"></div>
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-20"></div>
+								<div class="w-8 bg-emerald-500/40 rounded-t-sm h-28"></div>
+							</div>
+						</>
+					)}
+				</div>
+
+				<!-- Stats -->
+				<div class="flex flex-col gap-6">
+					<div class="flex-1 rounded-3xl bg-white/[0.02] border border-white/5 p-8 flex flex-col justify-center">
+						<div class="text-sm text-gray-500 mb-2">已收录资讯源</div>
+						<div class="text-4xl font-bold text-white mb-2 font-mono">{newsData.count}</div>
+						{newsData.count > 0 ? (
+							<div class="text-xs text-emerald-400 flex items-center gap-1">持续更新中</div>
+						) : (
+							<div class="text-xs text-emerald-400 flex items-center gap-1">
+								<svg class="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+								等待首次抓取
+							</div>
+						)}
+					</div>
+					<div class="flex-1 rounded-3xl bg-white/[0.02] border border-white/5 p-8 flex flex-col justify-center">
+						<div class="text-sm text-gray-500 mb-2">分析引擎状态</div>
+						<div class="text-2xl font-semibold text-gray-300 mb-2">Standby</div>
+						<div class="text-xs text-gray-500 flex items-center gap-1">
+							等待数据流输入
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Architecture Lifecycle -->
+		<section id="architecture" class="py-24 px-6 max-w-6xl mx-auto border-t border-white/5">
+			<div class="mb-20 text-center">
+				<h2 class="text-3xl font-bold tracking-tight mb-4">不可逃避的生命周期</h2>
+				<p class="text-gray-400 max-w-2xl mx-auto text-lg font-light">底层 Hook 拦截，确保每一次对话都变成项目资产的积累。</p>
+			</div>
+
+			<div class="flex flex-col md:flex-row justify-between gap-8 md:gap-4 max-w-4xl mx-auto relative px-4">
+				<div class="hidden md:block absolute top-6 left-12 right-12 h-px bg-white/10 z-0"></div>
+				
+				<!-- Step 1 -->
+				<div class="relative z-10 flex flex-col items-center text-center group w-full md:w-1/4">
+					<div class="w-12 h-12 rounded-full bg-black border border-indigo-500/50 flex items-center justify-center mb-6 text-indigo-400 font-mono text-sm group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(99,102,241,0.2)]">1</div>
+					<h4 class="font-semibold text-white mb-2 tracking-wide">SessionStart</h4>
+					<p class="text-sm text-gray-500">展示 Wiki 状态与活跃 Skills</p>
+				</div>
+				
+				<!-- Step 2 -->
+				<div class="relative z-10 flex flex-col items-center text-center group w-full md:w-1/4">
+					<div class="w-12 h-12 rounded-full bg-black border border-purple-500/50 flex items-center justify-center mb-6 text-purple-400 font-mono text-sm group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(168,85,247,0.2)]">2</div>
+					<h4 class="font-semibold text-white mb-2 tracking-wide">PreToolUse</h4>
+					<p class="text-sm text-gray-500">自动注入项目级知识上下文</p>
+				</div>
+				
+				<!-- Step 3 -->
+				<div class="relative z-10 flex flex-col items-center text-center group w-full md:w-1/4">
+					<div class="w-12 h-12 rounded-full bg-black border border-pink-500/50 flex items-center justify-center mb-6 text-pink-400 font-mono text-sm group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(236,72,153,0.2)]">3</div>
+					<h4 class="font-semibold text-white mb-2 tracking-wide">PostToolUse</h4>
+					<p class="text-sm text-gray-500">监控操作并提醒知识回流</p>
+				</div>
+
+				<!-- Step 4 -->
+				<div class="relative z-10 flex flex-col items-center text-center group w-full md:w-1/4">
+					<div class="w-12 h-12 rounded-full bg-black border border-amber-500/50 flex items-center justify-center mb-6 text-amber-400 font-mono text-sm group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.2)]">4</div>
+					<h4 class="font-semibold text-white mb-2 tracking-wide">Stop</h4>
+					<p class="text-sm text-gray-500">记录 Log 并自动 Git 固化</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="border-t border-white/5 py-12 px-6 text-center text-sm text-gray-600">
+			<p>© 2026 OpenWorld Wiki Plugin. Build with AI.</p>
+		</footer>
+	</main>
+</Layout>

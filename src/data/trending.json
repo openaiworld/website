@@ -1,0 +1,105 @@
+{
+  "updated": "2026-04-26T10:15:53.405Z",
+  "count": 11,
+  "items": [
+    {
+      "name": "tensorflow/tensorflow",
+      "description": "An Open Source Machine Learning Framework for Everyone",
+      "url": "https://github.com/tensorflow/tensorflow",
+      "stars": 194887,
+      "language": "C++",
+      "topic": "machine-learning",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "Significant-Gravitas/AutoGPT",
+      "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "stars": 183763,
+      "language": "Python",
+      "topic": "artificial-intelligence",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "ollama/ollama",
+      "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+      "url": "https://github.com/ollama/ollama",
+      "stars": 170027,
+      "language": "Go",
+      "topic": "llm",
+      "pushed_at": "2026-04-25"
+    },
+    {
+      "name": "affaan-m/everything-claude-code",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "url": "https://github.com/affaan-m/everything-claude-code",
+      "stars": 167210,
+      "language": "JavaScript",
+      "topic": "llm",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "f/prompts.chat",
+      "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "url": "https://github.com/f/prompts.chat",
+      "stars": 160719,
+      "language": "HTML",
+      "topic": "artificial-intelligence",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "huggingface/transformers",
+      "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+      "url": "https://github.com/huggingface/transformers",
+      "stars": 159930,
+      "language": "Python",
+      "topic": "machine-learning",
+      "pushed_at": "2026-04-25"
+    },
+    {
+      "name": "langflow-ai/langflow",
+      "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+      "url": "https://github.com/langflow-ai/langflow",
+      "stars": 147368,
+      "language": "Python",
+      "topic": "generative-ai",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "langchain-ai/langchain",
+      "description": "The agent engineering platform",
+      "url": "https://github.com/langchain-ai/langchain",
+      "stars": 134951,
+      "language": "Python",
+      "topic": "generative-ai",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "microsoft/generative-ai-for-beginners",
+      "description": "21 Lessons, Get Started Building with Generative AI ",
+      "url": "https://github.com/microsoft/generative-ai-for-beginners",
+      "stars": 109849,
+      "language": "Jupyter Notebook",
+      "topic": "generative-ai",
+      "pushed_at": "2026-04-21"
+    },
+    {
+      "name": "pytorch/pytorch",
+      "description": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
+      "url": "https://github.com/pytorch/pytorch",
+      "stars": 99448,
+      "language": "Python",
+      "topic": "deep-learning",
+      "pushed_at": "2026-04-26"
+    },
+    {
+      "name": "hacksider/Deep-Live-Cam",
+      "description": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "stars": 92309,
+      "language": "Python",
+      "topic": "artificial-intelligence",
+      "pushed_at": "2026-04-23"
+    }
+  ]
+}
