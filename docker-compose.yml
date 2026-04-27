@@ -12,8 +12,10 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
-    restart: unless-stopped
+      - "80:80"     # http
+      - "443:443"   # https
+    volumes:
+      - /www/ssl:/etc/nginx/ssl:ro                         # 挂载 SSL 证书
 
   # 数据采集+重建（一次性任务）
   # 使用方式: docker compose run --rm cron
